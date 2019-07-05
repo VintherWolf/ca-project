@@ -8,7 +8,7 @@ USERNAME = 'YourGitHubHandle'
 PASSWORD = os.environ['GITHUB_PASSWORD']
 
 # The repository to add this issue to
-REPO_OWNER = 'YourGitHubHandle'
+REPO_OWNER = 'vintherwolf'
 REPO_NAME = 'ca-project'
 
 def make_github_issue(title, body=None, labels=None):
