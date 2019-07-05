@@ -1,15 +1,15 @@
 # Dockerfile for ca-project
 FROM python:3
 
-#  Dependancies
-ADD requirements.txt
+#  Dependencies
+COPY requirements.txt /ca-project/requirements
+WORKDIR /ca-project/requirements
+RUN pip install -r requirements.txt
+
 COPY . /ca-project
 WORKDIR /ca-project
 
-#Set-up Python Requirements
-RUN pip install -r requirements.txt
-
-#Exevute Application
+#Execute Application
 #RUN python run.py
 EXPOSE 5000 
 ENTRYPOINT ["python"]
