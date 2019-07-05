@@ -2,12 +2,10 @@
 FROM python:3
 
 #  Dependencies
-COPY requirements.txt ca-project/requirements/
-WORKDIR ca-project/requirements
-RUN pip install -r requirements.txt
-
 COPY . ca-project
 WORKDIR ca-project
+RUN pip install -r requirements.txt
+
 
 #Execute Application
 EXPOSE 5000 
