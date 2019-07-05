@@ -31,8 +31,6 @@ workflows:
             branches:
               only: 
                 - master
-          requires:
-            - initialTest
       - initialTest:
           filters:
             branches:
