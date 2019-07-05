@@ -5,6 +5,7 @@ FROM python:3
 COPY . ca-project
 WORKDIR ca-project
 RUN pip install -r requirements.txt
+RUN pip install Flask
 
 
 #Execute Application
