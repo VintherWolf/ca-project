@@ -11,11 +11,11 @@ jobs:
       - run: docker build -t vintherwolf/ca-project/master:$CIRCLE_SHA1 .
 
     # deploy the image 
-      - run: docker push vintherwolf/ca-project:$CIRCLE_SHA1
-      
+      - run: docker push vintherwolf/ca-project/master:$CIRCLE_SHA1 vintherwolf/caproject:$CIRCLE_SHA1
+ 
   initialTest:
     docker:
-      - image: vintherwolf/ca-project:latest
+      - image: vintherwolf/caproject:latest
     steps:
       - checkout
       - run:
