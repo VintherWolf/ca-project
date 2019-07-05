@@ -9,7 +9,7 @@ jobs:
           command: python run.py
       - store_test_results:
           path: test-results
-   build:
+  build:
     machine: true
     steps:
       - checkout
@@ -30,11 +30,11 @@ workflows:
           filters:
             branches:
               only:
-                - v1.0
+                - master
       - build:
           filters:
             branches:
               only: 
-                - v1.0
+                - master
           requires:
             - initialTest
