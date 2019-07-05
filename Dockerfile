@@ -7,7 +7,7 @@ COPY . /ca-project
 
 #Set-up Python Requirements
 RUN pip install -r requirements.txt
-
+CMD [ "pip install -r requirements.txt" ]
 #Exevute Application
 # RUN python run.py
 EXPOSE 5000 
