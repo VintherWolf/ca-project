@@ -1,9 +1,15 @@
 # Dockerfile for ca-project
 FROM python:3
-ADD Requirements.txt
+
+#  Dependancies
+COPY Requirements.txt
+COPY . /ca-project
+
+#Set-up Python Requirements
 RUN pip install -r requirements.txt
-ADD . /ca-project
-RUN python run.py
-EXPOSE 5000
-CMD run.py --port 5000
+
+#Exevute Application
+# RUN python run.py
+EXPOSE 5000 
+CMD [ "python", "./run.py" ]
 RUN rm -rf /var/lib/apt/lists/*
