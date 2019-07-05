@@ -2,7 +2,7 @@
 FROM python:3
 
 #  Dependancies
-COPY requirements.txt
+ADD requirements.txt
 COPY . /ca-project
 WORKDIR /ca-project
 
@@ -10,8 +10,8 @@ WORKDIR /ca-project
 RUN pip install -r requirements.txt
 
 #Exevute Application
-# RUN python run.py
+#RUN python run.py
 EXPOSE 5000 
 ENTRYPOINT ["python"]
-#CMD [ "run.py" ]
+CMD [ "run.py" ]
 RUN rm -rf /var/lib/apt/lists/*
