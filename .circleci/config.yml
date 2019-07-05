@@ -1,14 +1,5 @@
 version: 2.0
 jobs:
-  initialTest:
-    docker:
-      - image: python
-    steps:
-      - checkout
-      - run:
-          command: python run.py
-      - store_test_results:
-          path: test-results
   build:
     machine: true
     steps:
@@ -17,20 +8,24 @@ jobs:
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
     
     #build the image
-      - run: docker build -t https://github.com/VintherWolf/ca-project/v1.0:$CIRCLE_SHA1 .
+      - run: docker build -t https://github.com/VintherWolf/ca-project/master:$CIRCLE_SHA1 .
 
     # deploy the image 
       - run: docker push vintherwolf/caproject:$CIRCLE_SHA1
-
+      
+  initialTest:
+    docker:
+      - image: vintherwolf/caproject:latest
+    steps:
+      - checkout
+      - run:
+          command: python run.py
+      - store_test_results:
+          path: test-results
 workflows:
   version: 2
   jobSequence:
     jobs:
-      - initialTest:
-          filters:
-            branches:
-              only:
-                - master
       - build:
           filters:
             branches:
@@ -38,3 +33,8 @@ workflows:
                 - master
           requires:
             - initialTest
+      - initialTest:
+          filters:
+            branches:
+              only:
+                - master            
