@@ -2,12 +2,12 @@
 FROM python:3
 
 #  Dependencies
-COPY requirements.txt /ca-project/requirements
-WORKDIR /ca-project/requirements
+COPY requirements.txt ca-project/requirements/
+WORKDIR ca-project/requirements
 RUN pip install -r requirements.txt
 
-COPY . /ca-project
-WORKDIR /ca-project
+COPY . ca-project
+WORKDIR ca-project
 
 #Execute Application
 #RUN python run.py
