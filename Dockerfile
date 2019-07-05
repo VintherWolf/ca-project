@@ -13,5 +13,5 @@ RUN pip install -r requirements.txt
 # RUN python run.py
 EXPOSE 5000 
 ENTRYPOINT ["python"]
-CMD [ "run.py" ]
+#CMD [ "run.py" ]
 RUN rm -rf /var/lib/apt/lists/*
