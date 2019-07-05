@@ -2,7 +2,7 @@
 FROM python:3
 
 #  Dependancies
-COPY Requirements.txt
+COPY requirements.txt
 COPY . /ca-project
 
 #Set-up Python Requirements
