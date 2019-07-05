@@ -10,7 +10,6 @@ COPY . ca-project
 WORKDIR ca-project
 
 #Execute Application
-#RUN python run.py
 EXPOSE 5000 
 ENTRYPOINT ["python"]
 CMD [ "run.py" ]
