@@ -2,7 +2,7 @@ version: 2.0
 jobs:
   initialTest:
     docker:
-      - image: python3
+      - image: python
     steps:
       - checkout
       - run:
